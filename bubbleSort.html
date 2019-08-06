@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  /**
+   * 冒泡排序
+   * 原理: 每次循环将数组相邻的两项进行比较,如果前一项比后一项大，
+   *      就交换两项的位置，否则什么也不做；这样比较一轮过后，可以得出本轮的最大值         
+  */
+ (
+  () => {
+    const arr = [8, 94, -1, -2.4, 15, 6, 3, 2]
+    for (let i = 0 ; i < arr.length - 1; i ++ ) {     // 只需要循环arr.length-1轮
+      for( let j = 0; j < arr.length - 1 - i; j++ ) {  // 每轮需要比较的数字减一个
+        // debugger    // 观察每轮中, j变化时数据的变化
+        if( arr[j] < arr[j+1] ) { // 前后两个数比较,前面的数比后面的数小,两者调换位置; 每轮最小的数冒泡到数组后面
+          let temp = arr[j]   // 使用中间值,把数组 arr[j] 和 arr[j+1] 指向的堆内存中对应的 value 交换
+          arr[j] = arr[j+1]
+          arr[j+1] = temp
+        }
+      }
+      console.log('第'+ (i+1) +'次循环后数组变化:', arr)
+    }
+    console.log('数组从大到小排序:', arr)
+  }
+ )();
+</script>
